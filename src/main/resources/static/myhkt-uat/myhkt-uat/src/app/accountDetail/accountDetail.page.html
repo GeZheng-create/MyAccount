@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" id="backbutton" (click)="goBack()"></ion-back-button>
+      <!-- <img src="assets/img/{{BILLAGT}}.jpg" width="20%">&nbsp;&nbsp;
+      <h4>{{CUS_NUM}} </h4> -->
+    </ion-buttons>
+
+    <ion-title style="float:right">
+      <ion-item>
+        <img src="assets/img/{{billagt}}.jpg" width="25%"> &nbsp;
+        {{cust_rid}} &nbsp;
+        <ion-icon name="chatbubbles-outline" width="25%"></ion-icon>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment style="text-align: left; width: 180px; height: 70px;" [(ngModel)]="selectedSeg">
+    <ion-segment-button value="summary">
+      <img src="assets/img/bills&summary.jpg" height="70px">
+    </ion-segment-button>
+    <ion-segment-button value="service">
+      <img src="assets/img/service plan.jpg" height="70px">
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSeg == 'summary'">
+    <ion-item>
+      Account No.:
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a>{{acct_num}}</a>
+    </ion-item>
+    <div style="padding-left: 20px; height: 30px;">
+      Recent Bills: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a>update Billing Information
+        <ion-icon name="chevron-forward-circle-outline"></ion-icon>
+      </a>
+    </div>
+    <div style="color:grey;text-align:initial; padding-left: 20px;">
+      No bills has been issured. For any inquiries, please click "Live Chat" at the top right corner.
+    </div>
+  </div>
+  <div *ngIf="selectedSeg == 'service'">
+    <div style="padding-left: 5px; font-size: 18px; height: 30px;">
+      Service Plan Details
+    </div>
+
+
+    <div style="color:grey; background-color:lightgray;font-size: 17px; height: 30px; padding-left: 5px;">
+      Monthly Rental:
+    </div>
+
+    <div style="color:grey;font-size: 16px;">
+      To inquire service plan details of this NETVIGATOR service, please click "Live Chat" at the top right
+      corner.
+    </div>
+
+    <div style="height: 30px; font-size: 17px; height: 30px; padding-left: 5px;">
+      Value Added Services
+    </div>
+    <div style="color:grey; background-color:lightgray;font-size: 16px; padding-left: 5px;height: 60px; ">
+      No Value Added Service is registered under the account. For any inquiries, please click "Live Chat"
+      at the top right corner.
+    </div>
+
+    <div style="height: 40px; font-size: 17px; height: 30px; padding-left: 5px;">
+      Incentives
+    </div>
+
+    <div style="color:grey; background-color:lightgray;font-size: 16px; padding-left: 5px;  height: 70px;">
+      No incentive is registerd under the account. For any inquiries, please click "Live Chat"
+      at the top right corner.
+    </div>
+
+    <div style="height: 40px; font-size: 17px; height: 30px; padding-left: 5px;">
+      Commitment
+    </div>
+    <div style="color:grey; background-color:lightgray;font-size: 16px; padding-left: 5px; height: 70px;">
+      To inqiurie service plan details of this NETVIGATOR service. For any inquiries, please click "Live Chat"
+      at the top right corner.
+    </div>
+
+  </div>
+</ion-content>

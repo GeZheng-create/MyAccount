@@ -1,0 +1,39 @@
+<meta http-equiv="Access-Control-Allow-Origin" ion-content="*" />
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" id="backbutton" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      My Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ng-submit={expression}>
+  <ion-col size-md="6" push-md="3">
+    <!-- <ion-item-sliding #slide> -->
+    <ion-item-sliding *ngFor="let account of accounts" >
+      <ion-item detail class="Single-data" [routerLink]="['/accountDetail']"
+        [queryParams]={alias:account.alias,rid:account.rid,cus_num:account.cus_num,billagt:account.billagt,acct_num:account.acct_num,cust_rid:account.cust_rid}>
+        <ion-thumbnail>
+          <img src="assets/img/{{account.billagt}}.jpg" width="20%">
+        </ion-thumbnail>
+        &nbsp;
+        <ion-label>
+          <h2>{{account.cust_rid}} </h2>
+          <div id="{{account.rid}}" style="color: grey; font-size: 13px;">{{account.alias}} </div>
+
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-button (click)='update(account.rid,alias)'>Display Name</ion-button>
+      </ion-item-options>
+      <!-- <ion-item-options side="end">
+        <ion-button  (click)='delete(account.rid)'>delete</ion-button>
+      </ion-item-options> -->
+    </ion-item-sliding>
+  </ion-col>
+
+ 
+</ion-content>

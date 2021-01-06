@@ -1,0 +1,7 @@
+{
+  "name": "myhkt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
